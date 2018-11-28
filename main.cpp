@@ -47,9 +47,8 @@ int main() {
 	}
 	std::cout << "HELLO" << '\n';
 	sf::RenderWindow window(sf::VideoMode(640, 480, 32), "SFML");
-	sf::View view1;
-	view1.reset((sf::FloatRect(320.f, 240.f, 640.f, 480.f)));
-	window.setView(view1);
+	sf::View view1(sf::FloatRect(320.f, 240.f, 640.f, 480.f));
+
 
 	while (window.isOpen())
 	{
@@ -81,8 +80,28 @@ int main() {
 					default:
 						break;
 					}
+				}else if(evnt.type == sf::Event::EventType::MouseWheelScrolled){
+
+						auto view = window.getView();
+						auto size = view.getSize();
+
+						if (evnt.mouseWheelScroll.delta > 0)
+						{
+							size.x -= 100;
+							size.y -= 100;
+						}
+						else
+						{
+							size.x += 100;
+							size.y += 100;
+						}
+						view.setSize(size);
+						window.setView(view);
+						break;	
 				}
+
 		}
+		window.setView(view1);
 		window.clear(sf::Color::Cyan);
 
 		for (unsigned int i = 0; i < map.size(); i++)
@@ -90,7 +109,7 @@ int main() {
 			for (unsigned int j = 0; j < map[i].size(); j++)
 			{
 				if (map[i][j].x != -1 && map[i][j].y != -1)
-				{	window.setView(window.getDefaultView());
+				{	//window.setView(window.getDefaultView());
 					tiles.setPosition(j * 32, i * 32);
 					tiles.setTextureRect(sf::IntRect(map[i][j].x * 32, map[i][j].y * 32, 32, 32));
 					window.draw(tiles);
