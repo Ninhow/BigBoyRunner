@@ -9,10 +9,15 @@
 #include <vector>
 int main() {
 
-	//Game(SCREEN_WIDTH, SCREEN_HEIGHT, "SFML STARTER");
+	Game(SCREEN_WIDTH, SCREEN_HEIGHT, "SFML STARTER");
+
+
+
+
+	/*
 	std::ifstream file("Map.txt");
 
-	
+
 
 	sf::Texture tileTexture;
 	sf::Sprite tiles;
@@ -52,6 +57,7 @@ int main() {
 
 	while (window.isOpen())
 	{
+		auto view = window.getView();
 		sf::Event evnt;
 		while (window.pollEvent(evnt))
 		{	
@@ -69,39 +75,47 @@ int main() {
 						break;
 					// Process the up, down, left and right keys
 					case sf::Keyboard::Up:
+						view.move(0,-10);
+						window.setView(view);
 						break;
 					case sf::Keyboard::Down:
+						view.move(0,10);
+						window.setView(view);
 						break;
 					case sf::Keyboard::Left:
+						view.move(-10,0);
+						window.setView(view);
 					    break;
 					case sf::Keyboard::Right:
-						view1.move(100,0);
+						view.move(10,0);
+						window.setView(view);
 						break;
 					default:
 						break;
 					}
 				}else if(evnt.type == sf::Event::EventType::MouseWheelScrolled){
 
-						auto view = window.getView();
+
 						auto size = view.getSize();
 
 						if (evnt.mouseWheelScroll.delta > 0)
 						{
+							std::cout << "UPPÅT" << '\n';
 							size.x -= 100;
 							size.y -= 100;
 						}
 						else
 						{
+							std::cout << "NERÅT" << '\n';
 							size.x += 100;
 							size.y += 100;
 						}
 						view.setSize(size);
 						window.setView(view);
-						break;	
 				}
 
 		}
-		window.setView(view1);
+//		window.setView(view1);
 		window.clear(sf::Color::Cyan);
 
 		for (unsigned int i = 0; i < map.size(); i++)
@@ -118,6 +132,6 @@ int main() {
 		}
 
 		window.display();
-	}
+	}*/
 	return EXIT_SUCCESS;
 }

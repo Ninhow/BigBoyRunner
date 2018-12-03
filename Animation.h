@@ -1,14 +1,23 @@
-#pragma once
+#ifndef ANIMATION_H
+#define ANIMATION_h
 #include <SFML/Graphics.hpp>
+#include "Game.h"
+#include "State.h"
+#include <fstream>
+#include <cctype>
+#include <string>
+#include <vector>
+#include <memory>
+
+
 class Animation
 {
 public:
+	Animation();
 	Animation(sf::Texture * texture, sf::Vector2u imageCount, float switchTime);
 	~Animation();
 
-	void update(int row, float deltaTime);
-
-private:
+	void update(int row, float deltaTime, bool faceRight);
 
 public:
 
@@ -23,3 +32,4 @@ private:
 
 };
 
+#endif // !ANIMATION_H

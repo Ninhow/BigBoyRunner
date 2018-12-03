@@ -45,5 +45,6 @@ void Game::Run()
 
 		interpolation = accumulator / _deltaTime;
 		_data->machine.GetActiveState()->Draw(interpolation);
+		
 	}
 }
