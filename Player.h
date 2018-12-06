@@ -1,32 +1,30 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <SFML/Graphics.hpp>
-#include "Game.h"
-#include "State.h"
 #include <fstream>
 #include <cctype>
 #include <string>
 #include <vector>
 #include <memory>
+#include "Animation.h"
+#include "Collision.h"
 
 class Player{
     public:
     Player() = delete;
-    Player(GameDataRef data);
+    Player(sf::Texture& texture, sf::Vector2u imageCount, float switchTime);
     ~Player();
-    void Init();
     void Update(float deltaTime);
-    void Draw();
+    void Draw(sf::RenderWindow& window);
 
-
+	Collision GetCollision() { return Collision(body); }
     private:
     sf::Clock _clock;
-    GameDataRef _data;
-    //Animation _animation;
+    Animation _animation;
     sf::RectangleShape body;
     unsigned int _row;
     bool _faceRight;
-
+	/*LÅT PLAYER VARA FÖR SIG... INGEN DATA INGENTING... BARA SJÄLVA SPELARE*/
 
 };
 

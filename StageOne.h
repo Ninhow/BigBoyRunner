@@ -24,7 +24,7 @@ private:
 
 	sf::Sprite _background;
 	std::unique_ptr<Map> _map = std::make_unique<Map>(_data);
-	std::unique_ptr<Player> _player = std::make_unique<Player>(_data);
+	std::unique_ptr<Player> _player;
 	std::vector<std::vector<sf::Vector2i>> _cordinates;
 };
 

@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-StageOne::StageOne(GameDataRef data): _data(data)
+StageOne::StageOne(GameDataRef data): _data(data), _player(std::make_unique<Player>( _data->assets.GetTexture("Albin"), sf::Vector2u(3,4), 100))
 {
 }
 
@@ -14,8 +14,6 @@ void StageOne::Init()
 {
 	_background.setTexture(_data->assets.GetTexture("MENU"));
 	_data->assets.LoadTexture("Albin", "albinSprite.png");
-	_map->Init();
-	_cordinates = _map->loadTextures("Map.txt");
 }
 
 void StageOne::HandleInput()
@@ -39,8 +37,7 @@ void StageOne::Draw(float deltaTime)
 {
 	_data->window.clear();
 	_data->window.draw(_background);
-	_map->DrawMap(_cordinates);
 	_player->Update(deltaTime);
-	_player->Draw();
+	_player->Draw(_data->window);
 	_data->window.display();
 }

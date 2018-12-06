@@ -13,8 +13,8 @@
 class Animation
 {
 public:
-	Animation();
-	Animation(sf::Texture * texture, sf::Vector2u imageCount, float switchTime);
+	Animation() = delete;
+	Animation(sf::Texture& texture, sf::Vector2u imageCount, float switchTime);
 	~Animation();
 
 	void update(int row, float deltaTime, bool faceRight);
