@@ -1,13 +1,12 @@
 #include "Player.h"
 
-Player::Player(sf::Texture& texture, sf::Vector2u imageCount, float switchTime) :_animation(texture, imageCount, switchTime){
+Player::Player(sf::Texture& texture, sf::Vector2u imageCount, float switchTime) :_animation(_body, imageCount, switchTime){
     
     
     _row = 0;
     _faceRight = true;
-    body.setSize(sf::Vector2f(100.0f, 150.0f));
-    body.setPosition(206.0f, 206.0f);
-    body.setTexture(&texture);
+    _body.setPosition(206.0f, 206.0f);
+    _body.setTexture(texture);
 
 
 }
@@ -40,9 +39,9 @@ void Player::Update(float deltaTime){
     }
     //movement.y += 981.00 * deltaTime;
 	_animation.update(_row, deltaTime, _faceRight);
-	body.setTextureRect(_animation.uvRect);
-	body.move(movement);
+	_body.setTextureRect(_animation.uvRect);
+	_body.move(movement);
 }
 void Player::Draw(sf::RenderWindow& window){
-    window.draw(body);
+    window.draw(_body);
 }

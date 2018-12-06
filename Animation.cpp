@@ -2,13 +2,13 @@
 
 
 
-Animation::Animation(sf::Texture& texture, sf::Vector2u imageCount, float switchTime): _imageCount(imageCount), _switchTime(switchTime)
+Animation::Animation(sf::Sprite& texture, sf::Vector2u imageCount, float switchTime): _imageCount(imageCount), _switchTime(switchTime)
 {
 	_totalTime = 0.0f;
 	_currentImage.x = 0;
 
-	uvRect.width = texture.getSize().x / float(imageCount.x);
-	uvRect.height = texture.getSize().y / float(imageCount.y);
+	uvRect.width = texture.getTextureRect().width / float(imageCount.x);
+	uvRect.height = texture.getTextureRect().height / float (imageCount.y);
 }
 
 Animation::~Animation()

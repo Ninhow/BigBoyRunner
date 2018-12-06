@@ -17,14 +17,13 @@ class Player{
     void Update(float deltaTime);
     void Draw(sf::RenderWindow& window);
 
-	Collision GetCollision() { return Collision(body); }
     private:
     sf::Clock _clock;
     Animation _animation;
-    sf::RectangleShape body;
+    sf::Sprite _body;
     unsigned int _row;
     bool _faceRight;
-	/*LÅT PLAYER VARA FÖR SIG... INGEN DATA INGENTING... BARA SJÄLVA SPELARE*/
+	/*Lï¿½T PLAYER VARA Fï¿½R SIG... INGEN DATA INGENTING... BARA SJï¿½LVA SPELARE*/
 
 };
 
