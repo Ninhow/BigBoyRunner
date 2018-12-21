@@ -1,15 +1,19 @@
-#pragma once
+#ifndef COLLISION_H
+#define COLLISION_H
+
+
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
+
+
 class Collision
 {
 public:
-	Collision(sf::RectangleShape& body);
+	Collision();
 	~Collision();
 
-	bool CheckSpriteCollision(Collision& other, float push);
-	sf::Vector2f GetPosition();
-	sf::Vector2f GetHalfSize();
-	void Move(float dx, float dy);
+	bool CheckSpriteCollision(sf::Vector2i bottom, std::vector<std::vector<sf::Vector2i>> cordinates);
 private:
-	sf::RectangleShape& _body;
 };
+#endif // !COLLISION_H

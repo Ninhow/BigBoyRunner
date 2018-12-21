@@ -9,7 +9,7 @@ void Map::Init(){
     _tiles.setTexture(_data->assets.GetTexture("MapTiles"));
 }
 
-
+//GÖR OM TILL 1 VECTOR OCH LÄS BÄTTRE!!
 std::vector<std::vector<sf::Vector2i>> Map::loadTextures(std::string fileName){
     std::ifstream file(fileName);
     std::vector<std::vector<sf::Vector2i>> map;

@@ -39,7 +39,7 @@ void Game::Run()
 		{
 			_data->machine.GetActiveState()->HandleInput();
 			_data->machine.GetActiveState()->Update(_deltaTime);
-
+			
 			accumulator -= _deltaTime;
 		}
 

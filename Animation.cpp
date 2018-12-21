@@ -1,12 +1,12 @@
 #include "Animation.h"
-
+#include <iostream>
 
 
 Animation::Animation(sf::Sprite& texture, sf::Vector2u imageCount, float switchTime): _imageCount(imageCount), _switchTime(switchTime)
 {
 	_totalTime = 0.0f;
 	_currentImage.x = 0;
-
+	//Sets every frame of the spritesheet
 	uvRect.width = texture.getTextureRect().width / float(imageCount.x);
 	uvRect.height = texture.getTextureRect().height / float (imageCount.y);
 }
@@ -14,7 +14,7 @@ Animation::Animation(sf::Sprite& texture, sf::Vector2u imageCount, float switchT
 Animation::~Animation()
 {
 }
-
+//Updates the animation, updating everyframe dependent of the movement
 void Animation::update(int row, float deltaTime, bool faceRight)
 {
 	_currentImage.y = row;
@@ -28,7 +28,6 @@ void Animation::update(int row, float deltaTime, bool faceRight)
 			_currentImage.x = 0;
 		}
 	}
-
 	
 	uvRect.top = _currentImage.y * uvRect.height;
 
