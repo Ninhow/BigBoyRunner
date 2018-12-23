@@ -11,9 +11,15 @@ Player::Player(sf::Texture& texture, sf::Vector2u imageCount, float switchTime)
 Player::~Player(){
 
 }
+/*
+void Player::updatePos(std::vector<int> tilesCord, std::vector<Tile> tilesMap){
+	acc.y = 0.2;
+	vel.x += acc.x;
+	vel.y += acc.y;
+	_body.move(vel);
 
-void Player::updatePos(){
 
+	
     pos = (static_cast<sf::Vector2i>(_body.getPosition()));
     pos /= TILE_WIDTH;
 
@@ -22,32 +28,44 @@ void Player::updatePos(){
 	rightBottom = pos + sf::Vector2i(1, 1),
 	rightTop = pos + sf::Vector2i(1, -1);
 
-    std::cout << bottom.x << " " << bottom.y << std::endl;
-}
 
+	auto toIndex = [&](sf::Vector2i vec) {
+	
+		return vec.y * 31 + vec.x;
+	
+	};
+
+
+    std::cout << bottom.x << " " << bottom.y << std::endl;
+
+	if (tilesCord[toIndex(bottom)] == 1 || tilesCord[toIndex(rightBottom)] == 1)
+	{
+		vel.y = acc.y = 0.f;
+		auto newPos = tilesMap[toIndex(bottom)].pos;
+		auto playerPos = _body.getPosition();
+		newPos.y -= 32;
+		_body.setPosition(playerPos.x, newPos.y);
+		_isJumping = 0;
+	}
+
+
+
+
+
+
+}
+*/
 //Player Updates, such as movement and also spritesheet update and movimentation,
 // deltaTime dependent for the use in different computers
-void Player::Update(float deltaTime, bool colide){
-
-    updatePos();
+void Player::Update(float deltaTime){
     velocity.x *= 0.5f;
 
-    //std::cout << "after pos: " << pos.x << " " << pos.y << std::endl;
-
-    sf::Vector2f movement (0.0f, 0.0f);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
         velocity.x -= 200;
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
         velocity.x += 200;
     }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-
-        std::cout << "SPACE PRESSED!" << std::endl;
-        canJump = false;
-        velocity.y = -sqrtf(2.0f * 981.0f * jumpHight);
-
-        }
 
 
     if(velocity.x == 0.0f){
@@ -59,19 +77,6 @@ void Player::Update(float deltaTime, bool colide){
         }else{
             _faceRight = true;
         }
-    }
-    if (colide){
-        velocity.y = 0.0f;
-        canJump = true;
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump){
-
-        std::cout << "SPACE PRESSED!" << std::endl;
-        canJump = false;
-        velocity.y = -sqrtf(2.0f * 981.0f * jumpHight);
-
-        }
-    }else{
-        velocity.y += 981.00 * deltaTime;
     }
 
 	_animation.update(_row, deltaTime, _faceRight);

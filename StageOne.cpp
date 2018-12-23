@@ -4,7 +4,7 @@
 
 StageOne::StageOne(GameDataRef data)
 : _data(data), _player(std::make_unique<Player>( _data->assets.GetTexture("Albin"),
- sf::Vector2u(3,4), 100)), _collision(std::make_unique<Collision>())
+ sf::Vector2u(3,4), 100)), _collision(std::make_unique<Collision>()), _camera(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 768.0f))
 {
 }
 
@@ -18,7 +18,7 @@ void StageOne::Init()
 	_background.setTexture(_data->assets.GetTexture("MENU"));
 	_map.get()->Init();
 
-	_cordinates = _map.get()->loadTextures("Map.txt");
+	 _cordinates = _map.get()->loadTextures("Map2.txt");
 }
 
 //Handle stage inputs! 
@@ -36,25 +36,19 @@ void StageOne::HandleInput()
 }
 //Update Stage
 void StageOne::Update(float deltaTime)
-{	auto collisionDetected= _collision.get()->CheckSpriteCollision(_player->bottom, _cordinates);
-	_player->Update(deltaTime, collisionDetected);
-
-
-	if (collisionDetected){
-		
-	}
-/*
-	std::cout << "Matrix x: "<< _cordinates[_player->pos.y][_player->pos.x].x << " Matrix y: " << _cordinates[_player->pos.y][_player->pos.x].y << std::endl;
-	if(_cordinates[_player->pos.y][_player->pos.x].x != -1  && _cordinates[_player->pos.y][_player->pos.x].y != -1){
-		std::cout << "COLLISION!" << std::endl;
-	}*/
-
-
+{	
+	_player->Update(deltaTime);
 }
 
 void StageOne::Draw(float deltaTime)
 {
+
+	_camera.setCenter(_data->window.getSize().x / 2, _data->window.getSize().y / 2);
+	_camera.move(_player->_body.getPosition().x - (SCREEN_WIDTH / 2), 0);
+
+
 	_data->window.clear();
+	_data->window.setView(_camera);
 	_data->window.draw(_background);
 	_map->DrawMap(_cordinates);
 	_player->Draw(_data->window);

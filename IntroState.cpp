@@ -4,7 +4,7 @@
 
 IntroState::IntroState(GameDataRef data) : _data(data)
 {
-	_data->assets.LoadTexture("Albin", "albinSprite.png");
+	_data->assets.LoadTexture("Albin", "albin32_32.png");
 	
 }
 

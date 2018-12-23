@@ -7,10 +7,10 @@
 #include <cctype>
 #include <string>
 #include <vector>
+
 int main() {
 
 	Game(SCREEN_WIDTH, SCREEN_HEIGHT, "SFML STARTER");
-
 
 
 	return EXIT_SUCCESS;
