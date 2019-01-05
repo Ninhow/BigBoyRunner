@@ -2,6 +2,7 @@
 #include <iostream>
 #include <math.h>
 
+
 Player::Player(sf::Texture& texture, sf::Vector2u imageCount, float switchTime) 
 :_body(texture), _animation(_body, imageCount, switchTime), _row(0), _faceRight(true), canJump(true), jumpHight(100)
 {
@@ -11,61 +12,36 @@ Player::Player(sf::Texture& texture, sf::Vector2u imageCount, float switchTime)
 Player::~Player(){
 
 }
-/*
-void Player::updatePos(std::vector<int> tilesCord, std::vector<Tile> tilesMap){
-	acc.y = 0.2;
-	vel.x += acc.x;
-	vel.y += acc.y;
-	_body.move(vel);
-
-
-	
-    pos = (static_cast<sf::Vector2i>(_body.getPosition()));
-    pos /= TILE_WIDTH;
-
-    bottom = pos + sf::Vector2i(0, 1);
-    top = pos + sf::Vector2i(0, -1),
-	rightBottom = pos + sf::Vector2i(1, 1),
-	rightTop = pos + sf::Vector2i(1, -1);
-
-
-	auto toIndex = [&](sf::Vector2i vec) {
-	
-		return vec.y * 31 + vec.x;
-	
-	};
-
-
-    std::cout << bottom.x << " " << bottom.y << std::endl;
-
-	if (tilesCord[toIndex(bottom)] == 1 || tilesCord[toIndex(rightBottom)] == 1)
-	{
-		vel.y = acc.y = 0.f;
-		auto newPos = tilesMap[toIndex(bottom)].pos;
-		auto playerPos = _body.getPosition();
-		newPos.y -= 32;
-		_body.setPosition(playerPos.x, newPos.y);
-		_isJumping = 0;
-	}
-
-
-
-
-
-
-}
-*/
 //Player Updates, such as movement and also spritesheet update and movimentation,
 // deltaTime dependent for the use in different computers
 void Player::Update(float deltaTime){
-    velocity.x *= 0.5f;
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-        velocity.x -= 200;
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-        velocity.x += 200;
-    }
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+	{
+		velocity.x = 200.2f;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+	{
+		velocity.x = -200.2f;
+	}
+	else
+	{
+		velocity.x = 0.f;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+	{
+		
+		if (!isJumping)
+		{
+			velocity.y = -200.f;
+			isJumping = 1;
+		}
+		
+	}
+	else {
+		velocity.y = 0.f;
+
+	}
 
 
     if(velocity.x == 0.0f){

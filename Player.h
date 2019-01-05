@@ -8,12 +8,6 @@
 #include <memory>
 #include "Animation.h"
 #include "DEFINITIONS.h"
-#include "Map.h"
-/*
-Player Class with player controls and animation as a komposition
-
-
-*/
 class Player{
     public:
     Player() = delete;
@@ -21,7 +15,6 @@ class Player{
     ~Player();
     void Update(float deltaTime);
     void Draw(sf::RenderWindow& window);
-    //void updatePos(std::vector<int> tilesCord, std::vector<Tile> tilesMap);
 
 
     friend class StageOne;
@@ -42,7 +35,8 @@ class Player{
     unsigned int _row;
     //WHat site the player is facing, needed for the animation(Try to make a better way later.)
     bool _faceRight;
-	bool _isJumping;
+	bool isJumping;
+	
 };
 
 #endif // !MAP_H

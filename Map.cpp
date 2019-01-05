@@ -1,6 +1,7 @@
 #include "Map.h"
 #include <iostream>
-Map::Map(GameDataRef data, int tileWidth, int nTilesW, int nTilesH): _data(data), _tileWidth(tileWidth), _nTilesW(nTilesW), _nTilesH(nTilesH) {
+Map::Map(GameDataRef data, int tileWidth, int nTilesW, int nTilesH): _data(data), _tileWidth(tileWidth), _nTilesW(nTilesW), _nTilesH(nTilesH), _player(std::make_unique<Player>(_data->assets.GetTexture("Albin"),
+	sf::Vector2u(3, 4), 100)), _camera(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 768.0f)){
 
 }
 //int tileWidth, int nTilesW, int nTilesH
@@ -95,28 +96,76 @@ std::vector<std::vector<sf::Vector2i>> Map::loadTextures(std::string fileName){
 }
 
 
-
-void Map::DrawMap(std::vector<std::vector<sf::Vector2i>> map){
-    //auto view = _data->window.getView();
-    
-    //_data->window.clear();
-	/*
-    for (unsigned int i = 0; i < map.size(); i++)
-    {
-        for (unsigned int j = 0; j < map[i].size(); j++)
-        {
-            if (map[i][j].x != -1 && map[i][j].y != -1)
-            {
-				tile.pos = sf::Vector2i(j * 32, i * 32);
-				_tiles.setTextureRect(sf::IntRect(map[i][j].x * 32, map[i][j].y * 32, 32, 32));
-                _tiles.setPosition(j * 32, i * 32);
-				tilesMap.push_back(tile);
-                _data->window.draw(_tiles);
-            }
-        }
-    }*/
+void Map::update(float deltaTime)
+{
+	
+	acc.y = 0.2;
+	vel.x += acc.x;
+	vel.y += acc.y;
+	_player->_body.move(vel);
 
 
+	auto pos = static_cast<sf::Vector2i>(_player->_body.getPosition());
+	pos /= 32;
+
+	sf::Vector2i bottom = pos + sf::Vector2i(0, 1),
+		top = pos + sf::Vector2i(0, -1),
+		rightBottom = pos + sf::Vector2i(1, 1),
+		rightTop = pos + sf::Vector2i(1, -1);
+
+	if (tilesCord[toIndex(bottom)] == 1 || tilesCord[toIndex(rightBottom)] == 1)
+	{
+		vel.y = acc.y = 0.f;
+		auto newPos = tilesMap[toIndex(bottom)].pos;
+		auto playerPos = _player->_body.getPosition();
+		newPos.y -= 32;
+		_player->_body.setPosition(playerPos.x, newPos.y);
+		_player->isJumping = false;
+	}
+	else if (tilesCord[toIndex(top)] == 1 || tilesCord[toIndex(rightTop)] == 1)
+	{
+		//vel.y = acc.y = 0.f;
+		auto newPos = tilesMap[toIndex(top)].pos;
+		auto playerPos = _player->_body.getPosition();
+		newPos.y += 32 + 1;
+		_player->_body.setPosition(playerPos.x, newPos.y);
+	}
+
+
+	pos = static_cast<sf::Vector2i>(_player->_body.getPosition());
+	pos /= 32;
+
+	sf::Vector2i left = pos + sf::Vector2i(0, 0),
+		right = pos + sf::Vector2i(1, 0);
+
+	if (tilesCord[toIndex(left)] == 1)
+	{
+		auto newPos = tilesMap[toIndex(left)].pos;
+		auto playerPos = _player->_body.getPosition();
+		newPos.x += 32;
+		_player->_body.setPosition(newPos.x, playerPos.y);
+		vel.x = 0.f;
+	}
+	else if (tilesCord[toIndex(right)] == 1)
+	{
+		auto newPos = tilesMap[toIndex(right)].pos;
+		auto playerPos = _player->_body.getPosition();
+		newPos.x -= 32;
+		_player->_body.setPosition(newPos.x, playerPos.y);
+		vel.x = 0.f;
+	}
+
+	
+	_player->Update(deltaTime);
+	auto p = _player->_body.getPosition();
+	std::cout << p.x << ' ' << p.y << '\n';
+	
+}
+
+
+void Map::DrawMap( float deltaTime){
+    	
+	
 	for (auto t : tilesMap)
 	{
 		if (t.collide == 1)
@@ -125,7 +174,8 @@ void Map::DrawMap(std::vector<std::vector<sf::Vector2i>> map){
 			_data->window.draw(_tiles);
 		}
 	}
-
+	_data->window.draw(_player->_body);
+	
     //_data->window.display();
 
 }

@@ -28,10 +28,10 @@ private:
 	GameDataRef _data;
 
 	sf::Sprite _background;
-	sf::View _camera;
-	std::unique_ptr<Map> _map = std::make_unique<Map>(_data, 32, 31, 11);
-	std::unique_ptr<Player> _player;
-	std::unique_ptr<Collision> _collision;
+	
+	std::unique_ptr<Map> _map = std::make_unique<Map>(_data, 32, 31, 22);
+	
+
 	std::vector<std::vector<sf::Vector2i>> _cordinates;
 };
 

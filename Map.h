@@ -1,6 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 #include <SFML/Graphics.hpp>
+#include <memory>
 #include "Game.h"
 #include "State.h"
 #include "Player.h"
@@ -8,7 +9,7 @@
 #include <cctype>
 #include <string>
 #include <vector>
-#include <memory>
+
 
 struct Tile
 {
@@ -25,7 +26,8 @@ class Map{
     Map(GameDataRef data, int tileWidth, int nTilesW, int nTilesH);
 
     void Init();
-	void DrawMap(std::vector<std::vector<sf::Vector2i>> map);
+	void DrawMap(float deltaTime);
+	void update(float deltaTime);
     //returna vektorn här så blir det betydligt enklare!
     std::vector<std::vector<sf::Vector2i>> loadTextures(std::string fileName);
 
@@ -46,7 +48,8 @@ class Map{
 	sf::Sprite _tiles;
 	std::vector<int> tilesCord;
 	int _tileWidth, _nTilesW, _nTilesH;
-
+	std::unique_ptr<Player> _player;
+	sf::View _camera;
 };
 
 #endif // !MAP_H
