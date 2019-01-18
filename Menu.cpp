@@ -15,8 +15,15 @@ void Menu::Init()
 	_data->assets.LoadTexture("MENU", MENU_BACKGROUND_FILEPATH);
 	_data->assets.LoadTexture("MENUTEXT", TITLE_FILEPATH);
 	_data->assets.LoadTexture("MENUBUTTON", PLAY_BUTTON_FILEPATH);
+	_data->assets.LoadSound("bigboy", "output.ogg");
+	_data->assets.LoadTexture("big1", "big1.png");
+	_data->assets.LoadTexture("big2", "big2.png");
+	_data->assets.LoadTexture("big3", "big3.png");
+	_data->assets.LoadTexture("big4", "big4.png");
+	_data->assets.LoadTexture("gameover", "gamover.png");
 
 	_background.setTexture(_data->assets.GetTexture("MENU"));
+	
 	_title.setTexture(_data->assets.GetTexture("MENUTEXT"));
 	_playButton.setTexture(_data->assets.GetTexture("MENUBUTTON"));
 

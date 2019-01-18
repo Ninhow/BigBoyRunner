@@ -7,7 +7,7 @@
 
 #define SCREEN_WIDTH 1024
 #define SCREEN_HEIGHT 768
-#define INTRO_STATE_SHOWTIME 0.5
+#define INTRO_STATE_SHOWTIME 2.0
 
 #define MENU_BACKGROUND_FILEPATH "menu.png"
 #define PLAY_BUTTON_FILEPATH "button.png"

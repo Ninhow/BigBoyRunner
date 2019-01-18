@@ -1,5 +1,5 @@
 #include "StateMachine.h"
-
+#include <iostream>
 
 
 StateMachine::StateMachine()
@@ -38,6 +38,7 @@ void StateMachine::ProcessStateChange()
 
 	if (_isAdding)
 	{
+		
 		if (!_states.empty())
 		{
 			if (_isReplacing)

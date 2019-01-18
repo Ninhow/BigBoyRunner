@@ -1,0 +1,124 @@
+\hypertarget{classIntroState}{}\section{Intro\+State Class Reference}
+\label{classIntroState}\index{Intro\+State@{Intro\+State}}
+
+
+{\ttfamily \#include $<$Intro\+State.\+h$>$}
+
+
+
+Inheritance diagram for Intro\+State\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classIntroState__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Intro\+State\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classIntroState__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIntroState_ab4dc575c648c2589c7b110f5c930601c}{Intro\+State}} (\mbox{\hyperlink{Game_8h_aff850703a7797c8bfee2f02906aec50c}{Game\+Data\+Ref}} data)
+\item 
+\mbox{\hyperlink{classIntroState_a33fe62d2ddc9d079f716016674090b05}{$\sim$\+Intro\+State}} ()
+\item 
+void \mbox{\hyperlink{classIntroState_a065e914b336c162b1467845c7126c920}{Init}} ()
+\item 
+void \mbox{\hyperlink{classIntroState_a6a2a89b3374f53e1bcf366c0ae896109}{Handle\+Input}} ()
+\item 
+void \mbox{\hyperlink{classIntroState_a781891b1db3bdbf6af228ef85c0df00a}{Update}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the menu frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIntroState_a903b8e2b781eae1e9a6e7db08d38fd2c}{Draw}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the menu frames. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Introduction of the game, image for about 2 seconds. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIntroState_ab4dc575c648c2589c7b110f5c930601c}\label{classIntroState_ab4dc575c648c2589c7b110f5c930601c}} 
+\index{Intro\+State@{Intro\+State}!Intro\+State@{Intro\+State}}
+\index{Intro\+State@{Intro\+State}!Intro\+State@{Intro\+State}}
+\subsubsection{\texorpdfstring{Intro\+State()}{IntroState()}}
+{\footnotesize\ttfamily Intro\+State\+::\+Intro\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Game_8h_aff850703a7797c8bfee2f02906aec50c}{Game\+Data\+Ref}}}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classIntroState_a33fe62d2ddc9d079f716016674090b05}\label{classIntroState_a33fe62d2ddc9d079f716016674090b05}} 
+\index{Intro\+State@{Intro\+State}!````~Intro\+State@{$\sim$\+Intro\+State}}
+\index{````~Intro\+State@{$\sim$\+Intro\+State}!Intro\+State@{Intro\+State}}
+\subsubsection{\texorpdfstring{$\sim$\+Intro\+State()}{~IntroState()}}
+{\footnotesize\ttfamily Intro\+State\+::$\sim$\+Intro\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classIntroState_a903b8e2b781eae1e9a6e7db08d38fd2c}\label{classIntroState_a903b8e2b781eae1e9a6e7db08d38fd2c}} 
+\index{Intro\+State@{Intro\+State}!Draw@{Draw}}
+\index{Draw@{Draw}!Intro\+State@{Intro\+State}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Intro\+State\+::\+Draw (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Updates the menu frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Pace timing. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classState_ae3bc988c6103665bca68560742fb40e1}{State}}.
+
+\mbox{\Hypertarget{classIntroState_a6a2a89b3374f53e1bcf366c0ae896109}\label{classIntroState_a6a2a89b3374f53e1bcf366c0ae896109}} 
+\index{Intro\+State@{Intro\+State}!Handle\+Input@{Handle\+Input}}
+\index{Handle\+Input@{Handle\+Input}!Intro\+State@{Intro\+State}}
+\subsubsection{\texorpdfstring{Handle\+Input()}{HandleInput()}}
+{\footnotesize\ttfamily void Intro\+State\+::\+Handle\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Handles Input during this stage 
+
+Implements \mbox{\hyperlink{classState_ad3de659bdeb45c97486464461d625e8f}{State}}.
+
+\mbox{\Hypertarget{classIntroState_a065e914b336c162b1467845c7126c920}\label{classIntroState_a065e914b336c162b1467845c7126c920}} 
+\index{Intro\+State@{Intro\+State}!Init@{Init}}
+\index{Init@{Init}!Intro\+State@{Intro\+State}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Intro\+State\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initializes needed engine parts needed. 
+
+Implements \mbox{\hyperlink{classState_a7ab4d8c6aa239a17ed579d89a209b156}{State}}.
+
+\mbox{\Hypertarget{classIntroState_a781891b1db3bdbf6af228ef85c0df00a}\label{classIntroState_a781891b1db3bdbf6af228ef85c0df00a}} 
+\index{Intro\+State@{Intro\+State}!Update@{Update}}
+\index{Update@{Update}!Intro\+State@{Intro\+State}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Intro\+State\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Updates the menu frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Pace timing. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classState_a770f40188fdfc64bc95a5166fef12e02}{State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{IntroState_8h}{Intro\+State.\+h}}\item 
+\mbox{\hyperlink{IntroState_8cpp}{Intro\+State.\+cpp}}\end{DoxyCompactItemize}

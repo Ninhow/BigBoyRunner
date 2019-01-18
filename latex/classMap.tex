@@ -1,0 +1,281 @@
+\hypertarget{classMap}{}\section{Map Class Reference}
+\label{classMap}\index{Map@{Map}}
+
+
+{\ttfamily \#include $<$Map.\+h$>$}
+
+
+
+Collaboration diagram for Map\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classMap__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMap_a7c19436c39c47715bee04c9a2390ac27}{Map}} ()=delete
+\item 
+\mbox{\hyperlink{classMap_a09823ddb7b00abc80dc72a4583469c58}{Map}} (\mbox{\hyperlink{Game_8h_aff850703a7797c8bfee2f02906aec50c}{Game\+Data\+Ref}} data, int tile\+Width, int n\+TilesW, int n\+TilesH)
+\begin{DoxyCompactList}\small\item\em Updates the menu frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a67b222c575eee96246c2f3fd25b4912c}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes all the needed parts of the map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a3d0c3cf82f949ab01c788ab1c3e7f799}{Draw\+Map}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the menu frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a7346023f96a36368daa2d4cafd4523f2}{update}} (float delta\+Time, sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Updates the menu frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a63ecd67d43e63befe38de3e438abedff}{load\+Textures}} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Updates the menu frames. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMap_a378ff701ba69cfe800693466f8f3299e}{to\+Index}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Transforms x and y intro the right the index of the tile map vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_ae2311b25220590e05479d66408eeaabf}{collision}} ()
+\begin{DoxyCompactList}\small\item\em Updates the player collision with the map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_a8485dce46ceae190bc9f51e22885eca3}{C\+Pburgers}} ()
+\begin{DoxyCompactList}\small\item\em Spawn all the burgers based on the tile map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMap_a52f3ef46020dd2f6544fa2ee8dc9f4ff}{to\+Index}} (sf\+::\+Vector2i vec)
+\begin{DoxyCompactList}\small\item\em Transforms a vector coordinate into the vector index och the tile map. \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{classMap_a0c46c2c55236317c42854758b1af682f}{Get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Get map size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMap_af58f98cfacd972d950201cc25df95982}{End\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the game has ended. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMap_a8a97b6d5e408db103798551949a4e1f8}{Stage\+One}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{classMap}{Map}} class where the game levels will be created and with help of other classes create the game inviroment. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMap_a7c19436c39c47715bee04c9a2390ac27}\label{classMap_a7c19436c39c47715bee04c9a2390ac27}} 
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\subsubsection{\texorpdfstring{Map()}{Map()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Map\+::\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classMap_a09823ddb7b00abc80dc72a4583469c58}\label{classMap_a09823ddb7b00abc80dc72a4583469c58}} 
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\subsubsection{\texorpdfstring{Map()}{Map()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Map\+::\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Game_8h_aff850703a7797c8bfee2f02906aec50c}{Game\+Data\+Ref}}}]{data,  }\item[{int}]{tile\+Width,  }\item[{int}]{n\+TilesW,  }\item[{int}]{n\+TilesH }\end{DoxyParamCaption})}
+
+
+
+Updates the menu frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Variable that links all the engine parts to each other. \\
+\hline
+{\em tile\+Width} & \mbox{\hyperlink{structTile}{Tile}} size. \\
+\hline
+{\em n\+TilesW} & Width of the map. \\
+\hline
+{\em n\+TilesH} & Height of the map. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMap_ae2311b25220590e05479d66408eeaabf}\label{classMap_ae2311b25220590e05479d66408eeaabf}} 
+\index{Map@{Map}!collision@{collision}}
+\index{collision@{collision}!Map@{Map}}
+\subsubsection{\texorpdfstring{collision()}{collision()}}
+{\footnotesize\ttfamily void Map\+::collision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the player collision with the map. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{classMap_ae2311b25220590e05479d66408eeaabf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classMap_ae2311b25220590e05479d66408eeaabf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMap_a8485dce46ceae190bc9f51e22885eca3}\label{classMap_a8485dce46ceae190bc9f51e22885eca3}} 
+\index{Map@{Map}!C\+Pburgers@{C\+Pburgers}}
+\index{C\+Pburgers@{C\+Pburgers}!Map@{Map}}
+\subsubsection{\texorpdfstring{C\+Pburgers()}{CPburgers()}}
+{\footnotesize\ttfamily void Map\+::\+C\+Pburgers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Spawn all the burgers based on the tile map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Pace timing. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{classMap_a8485dce46ceae190bc9f51e22885eca3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMap_a3d0c3cf82f949ab01c788ab1c3e7f799}\label{classMap_a3d0c3cf82f949ab01c788ab1c3e7f799}} 
+\index{Map@{Map}!Draw\+Map@{Draw\+Map}}
+\index{Draw\+Map@{Draw\+Map}!Map@{Map}}
+\subsubsection{\texorpdfstring{Draw\+Map()}{DrawMap()}}
+{\footnotesize\ttfamily void Map\+::\+Draw\+Map (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
+
+
+
+Updates the menu frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Pace timing. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_af58f98cfacd972d950201cc25df95982}\label{classMap_af58f98cfacd972d950201cc25df95982}} 
+\index{Map@{Map}!End\+Game@{End\+Game}}
+\index{End\+Game@{End\+Game}!Map@{Map}}
+\subsubsection{\texorpdfstring{End\+Game()}{EndGame()}}
+{\footnotesize\ttfamily void Map\+::\+End\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the game has ended. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMap_af58f98cfacd972d950201cc25df95982_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMap_a0c46c2c55236317c42854758b1af682f}\label{classMap_a0c46c2c55236317c42854758b1af682f}} 
+\index{Map@{Map}!Get\+Size@{Get\+Size}}
+\index{Get\+Size@{Get\+Size}!Map@{Map}}
+\subsubsection{\texorpdfstring{Get\+Size()}{GetSize()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Map\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get map size. 
+
+\mbox{\Hypertarget{classMap_a67b222c575eee96246c2f3fd25b4912c}\label{classMap_a67b222c575eee96246c2f3fd25b4912c}} 
+\index{Map@{Map}!Init@{Init}}
+\index{Init@{Init}!Map@{Map}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Map\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes all the needed parts of the map. 
+
+\mbox{\Hypertarget{classMap_a63ecd67d43e63befe38de3e438abedff}\label{classMap_a63ecd67d43e63befe38de3e438abedff}} 
+\index{Map@{Map}!load\+Textures@{load\+Textures}}
+\index{load\+Textures@{load\+Textures}!Map@{Map}}
+\subsubsection{\texorpdfstring{load\+Textures()}{loadTextures()}}
+{\footnotesize\ttfamily void Map\+::load\+Textures (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Updates the menu frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Pace timing. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{classMap_a63ecd67d43e63befe38de3e438abedff_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMap_a378ff701ba69cfe800693466f8f3299e}\label{classMap_a378ff701ba69cfe800693466f8f3299e}} 
+\index{Map@{Map}!to\+Index@{to\+Index}}
+\index{to\+Index@{to\+Index}!Map@{Map}}
+\subsubsection{\texorpdfstring{to\+Index()}{toIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Map\+::to\+Index (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Transforms x and y intro the right the index of the tile map vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X-\/axis coordinate. \\
+\hline
+{\em y} & Y-\/axis coordinate \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMap_a378ff701ba69cfe800693466f8f3299e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMap_a52f3ef46020dd2f6544fa2ee8dc9f4ff}\label{classMap_a52f3ef46020dd2f6544fa2ee8dc9f4ff}} 
+\index{Map@{Map}!to\+Index@{to\+Index}}
+\index{to\+Index@{to\+Index}!Map@{Map}}
+\subsubsection{\texorpdfstring{to\+Index()}{toIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Map\+::to\+Index (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2i}]{vec }\end{DoxyParamCaption})}
+
+
+
+Transforms a vector coordinate into the vector index och the tile map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & Coordinate vector. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMap_a7346023f96a36368daa2d4cafd4523f2}\label{classMap_a7346023f96a36368daa2d4cafd4523f2}} 
+\index{Map@{Map}!update@{update}}
+\index{update@{update}!Map@{Map}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Map\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time,  }\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Updates the menu frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Pace timing. \\
+\hline
+{\em window} & Reference to the game window. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classMap_a7346023f96a36368daa2d4cafd4523f2_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classMap_a8a97b6d5e408db103798551949a4e1f8}\label{classMap_a8a97b6d5e408db103798551949a4e1f8}} 
+\index{Map@{Map}!Stage\+One@{Stage\+One}}
+\index{Stage\+One@{Stage\+One}!Map@{Map}}
+\subsubsection{\texorpdfstring{Stage\+One}{StageOne}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classStageOne}{Stage\+One}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Map_8h}{Map.\+h}}\item 
+\mbox{\hyperlink{Map_8cpp}{Map.\+cpp}}\end{DoxyCompactItemize}

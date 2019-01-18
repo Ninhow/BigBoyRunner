@@ -1,0 +1,11 @@
+<map id="Animation.h" name="Animation.h">
+<area shape="rect" id="node2" href="$Animation_8cpp.html" title="Animation.cpp" alt="" coords="5,80,121,107"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="main.cpp" alt="" coords="146,80,229,107"/>
+<area shape="rect" id="node4" href="$Player_8h.html" title="Player.h" alt="" coords="253,80,327,107"/>
+<area shape="rect" id="node5" href="$Map_8h.html" title="Map.h" alt="" coords="191,155,253,181"/>
+<area shape="rect" id="node7" href="$StageOne_8h.html" title="StageOne.h" alt="" coords="241,229,339,256"/>
+<area shape="rect" id="node10" href="$Player_8cpp.html" title="Player.cpp" alt="" coords="327,155,415,181"/>
+<area shape="rect" id="node6" href="$Map_8cpp.html" title="Map.cpp" alt="" coords="141,229,217,256"/>
+<area shape="rect" id="node8" href="$Menu_8cpp.html" title="Menu.cpp" alt="" coords="187,304,271,331"/>
+<area shape="rect" id="node9" href="$StageOne_8cpp.html" title="StageOne.cpp" alt="" coords="295,304,407,331"/>
+</map>

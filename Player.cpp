@@ -4,7 +4,7 @@
 
 
 Player::Player(sf::Texture& texture, sf::Vector2u imageCount, float switchTime) 
-:_body(texture), _animation(_body, imageCount, switchTime), _row(0), _faceRight(true), canJump(true), jumpHight(100)
+:_body(texture), _animation(_body, imageCount, switchTime), canJump(true), jumpHight(100), _row(0), _faceRight(true)
 {
     _body.setPosition(206.0f, 206.0f);
 }
@@ -12,28 +12,27 @@ Player::Player(sf::Texture& texture, sf::Vector2u imageCount, float switchTime)
 Player::~Player(){
 
 }
-//Player Updates, such as movement and also spritesheet update and movimentation,
-// deltaTime dependent for the use in different computers
+
 void Player::Update(float deltaTime){
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
-		velocity.x = 200.2f;
+		velocity.x = 300.2f * _movementScale;
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
-		velocity.x = -200.2f;
+		velocity.x = -300.2f * _movementScale;
 	}
 	else
 	{
 		velocity.x = 0.f;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space))
 	{
 		
 		if (!isJumping)
 		{
-			velocity.y = -200.f;
+			velocity.y = -280.f;
 			isJumping = 1;
 		}
 		
@@ -43,7 +42,7 @@ void Player::Update(float deltaTime){
 
 	}
 
-
+	//animation
     if(velocity.x == 0.0f){
         _row = 0;
     }else{
@@ -60,7 +59,6 @@ void Player::Update(float deltaTime){
 	_body.move(velocity * deltaTime);
 }
 
-//Draw the player
 void Player::Draw(sf::RenderWindow& window){
     window.draw(_body);
 }

@@ -1,0 +1,4 @@
+<map id="Map::collision" name="Map::collision">
+<area shape="rect" id="node2" href="$classMap.html#a378ff701ba69cfe800693466f8f3299e" title="Transforms x and y intro the right the index of the tile map vector. " alt="" coords="171,5,277,32"/>
+<area shape="rect" id="node3" href="$classMap.html#af58f98cfacd972d950201cc25df95982" title="Checks if the game has ended. " alt="" coords="164,56,284,83"/>
+</map>

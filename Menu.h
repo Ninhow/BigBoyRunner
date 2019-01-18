@@ -4,7 +4,9 @@
 #include "State.h"
 #include "Game.h"
 #include <iostream>
-
+/**
+ * Menu class, first stage where the player decides to play.
+ */
 class Menu :public State
 {
 public:
@@ -13,9 +15,19 @@ public:
 
 
 	void Init();
-
+	/*! \brief Handles mouse input from the player.
+ 	*  
+	*/
 	void HandleInput();
+	/*! \brief Updates the menu frames.
+ 	*  
+ 	*@param deltaTime Pace timing.
+	*/
 	void Update(float deltaTime);
+	/*! \brief Updates the menu frames.
+ 	*  
+ 	*@param deltaTime Pace timing.
+	*/
 	void Draw(float deltaTime);
 private:
 	GameDataRef _data;

@@ -16,6 +16,7 @@ IntroState::~IntroState()
 void IntroState::Init()
 {
 	_data->assets.LoadTexture("Intro State", INTRO_FILEPATH);
+	_data->assets.LoadTexture("burger", "burger.png");
 
 	_background.setTexture(_data->assets.GetTexture("Intro State"));
 }

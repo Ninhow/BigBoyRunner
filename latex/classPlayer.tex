@@ -1,0 +1,126 @@
+\hypertarget{classPlayer}{}\section{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+
+
+Collaboration diagram for Player\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classPlayer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayer_a314e533783ad3c376a43cad3f49efa0c}{Player}} ()=delete
+\item 
+\mbox{\hyperlink{classPlayer_a033e19f2fd9948f3aad73cd82a404f8e}{Player}} (sf\+::\+Texture \&texture, sf\+::\+Vector2u image\+Count, float switch\+Time)
+\begin{DoxyCompactList}\small\item\em Creaters the player. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
+\item 
+void \mbox{\hyperlink{classPlayer_ae6b2acaf61aae4df8e10f50ebbdf664d}{Update}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the player position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a6a0b48c845f9c341283b5fc5a7898f9b}{Draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em Updates the player position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classPlayer_ad2f32e921244459f7cc6d50355429cc6}{Map}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{classPlayer}{Player}} class, herer will all the character attibutes be decided. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPlayer_a314e533783ad3c376a43cad3f49efa0c}\label{classPlayer_a314e533783ad3c376a43cad3f49efa0c}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classPlayer_a033e19f2fd9948f3aad73cd82a404f8e}\label{classPlayer_a033e19f2fd9948f3aad73cd82a404f8e}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \&}]{texture,  }\item[{sf\+::\+Vector2u}]{image\+Count,  }\item[{float}]{switch\+Time }\end{DoxyParamCaption})}
+
+
+
+Creaters the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & Is the player texture. \\
+\hline
+{\em image\+Count} & Number of images in the character animation grid. \\
+\hline
+{\em switch\+Time} & How fast should the animation loob be. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}\label{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}} 
+\index{Player@{Player}!````~Player@{$\sim$\+Player}}
+\index{````~Player@{$\sim$\+Player}!Player@{Player}}
+\subsubsection{\texorpdfstring{$\sim$\+Player()}{~Player()}}
+{\footnotesize\ttfamily Player\+::$\sim$\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer_a6a0b48c845f9c341283b5fc5a7898f9b}\label{classPlayer_a6a0b48c845f9c341283b5fc5a7898f9b}} 
+\index{Player@{Player}!Draw@{Draw}}
+\index{Draw@{Draw}!Player@{Player}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Player\+::\+Draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})}
+
+
+
+Updates the player position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \mbox{\hyperlink{classGame}{Game}} window. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer_ae6b2acaf61aae4df8e10f50ebbdf664d}\label{classPlayer_ae6b2acaf61aae4df8e10f50ebbdf664d}} 
+\index{Player@{Player}!Update@{Update}}
+\index{Update@{Update}!Player@{Player}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Player\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
+
+
+
+Updates the player position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Pace the character is moving. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classPlayer_ae6b2acaf61aae4df8e10f50ebbdf664d_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classPlayer_ad2f32e921244459f7cc6d50355429cc6}\label{classPlayer_ad2f32e921244459f7cc6d50355429cc6}} 
+\index{Player@{Player}!Map@{Map}}
+\index{Map@{Map}!Player@{Player}}
+\subsubsection{\texorpdfstring{Map}{Map}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classMap}{Map}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Player_8h}{Player.\+h}}\item 
+\mbox{\hyperlink{Player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

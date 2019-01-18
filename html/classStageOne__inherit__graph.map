@@ -1,0 +1,3 @@
+<map id="StageOne" name="StageOne">
+<area shape="rect" id="node2" href="$classState.html" title="{State\n||+ ~State()\l+ Init()\l+ HandleInput()\l+ Update()\l+ Draw()\l+ Pause()\l+ Resume()\l}" alt="" coords="5,5,132,171"/>
+</map>

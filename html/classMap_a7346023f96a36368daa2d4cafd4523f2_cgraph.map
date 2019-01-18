@@ -1,0 +1,6 @@
+<map id="Map::update" name="Map::update">
+<area shape="rect" id="node2" href="$classMap.html#ae2311b25220590e05479d66408eeaabf" title="Updates the player collision with the map. " alt="" coords="162,31,273,57"/>
+<area shape="rect" id="node5" href="$classMap.html#a8485dce46ceae190bc9f51e22885eca3" title="Spawn all the burgers based on the tile map. " alt="" coords="156,81,279,108"/>
+<area shape="rect" id="node3" href="$classMap.html#a378ff701ba69cfe800693466f8f3299e" title="Transforms x and y intro the right the index of the tile map vector. " alt="" coords="333,5,440,32"/>
+<area shape="rect" id="node4" href="$classMap.html#af58f98cfacd972d950201cc25df95982" title="Checks if the game has ended. " alt="" coords="327,56,447,83"/>
+</map>

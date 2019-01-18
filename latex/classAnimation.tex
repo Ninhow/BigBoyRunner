@@ -1,0 +1,112 @@
+\hypertarget{classAnimation}{}\section{Animation Class Reference}
+\label{classAnimation}\index{Animation@{Animation}}
+
+
+{\ttfamily \#include $<$Animation.\+h$>$}
+
+
+
+Collaboration diagram for Animation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classAnimation__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAnimation_a4c733083ff6e7c04ad06d73b5ccef398}{Animation}} ()=delete
+\item 
+\mbox{\hyperlink{classAnimation_aa8aaf286b114298e3ecbe1fc62572c27}{Animation}} (sf\+::\+Sprite \&texture, sf\+::\+Vector2u image\+Count, float switch\+Time)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classAnimation}{Animation}} constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAnimation_a401b68793d4fbf48d481c030ee4b2a16}{$\sim$\+Animation}} ()
+\item 
+void \mbox{\hyperlink{classAnimation_af09462caccc4d41ebfe288f703c4facd}{update}} (int row, float delta\+Time, bool face\+Right)
+\begin{DoxyCompactList}\small\item\em Updates the character animation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Int\+Rect \mbox{\hyperlink{classAnimation_a82c41dd15d9a98ecc0699ecca09fd056}{uv\+Rect}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{classAnimation}{Animation}} class for the update of pixels, the class receive pictures of spritesheets and manages the cordinates at the sheet for other classes to be able to update 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAnimation_a4c733083ff6e7c04ad06d73b5ccef398}\label{classAnimation_a4c733083ff6e7c04ad06d73b5ccef398}} 
+\index{Animation@{Animation}!Animation@{Animation}}
+\index{Animation@{Animation}!Animation@{Animation}}
+\subsubsection{\texorpdfstring{Animation()}{Animation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Animation\+::\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classAnimation_aa8aaf286b114298e3ecbe1fc62572c27}\label{classAnimation_aa8aaf286b114298e3ecbe1fc62572c27}} 
+\index{Animation@{Animation}!Animation@{Animation}}
+\index{Animation@{Animation}!Animation@{Animation}}
+\subsubsection{\texorpdfstring{Animation()}{Animation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Animation\+::\+Animation (\begin{DoxyParamCaption}\item[{sf\+::\+Sprite \&}]{texture,  }\item[{sf\+::\+Vector2u}]{image\+Count,  }\item[{float}]{switch\+Time }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classAnimation}{Animation}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & Texture sheet. \\
+\hline
+{\em image\+Count} & Image count of the texture sheet in the X axis \\
+\hline
+{\em switch\+Time} & Switch time for every sheet frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAnimation_a401b68793d4fbf48d481c030ee4b2a16}\label{classAnimation_a401b68793d4fbf48d481c030ee4b2a16}} 
+\index{Animation@{Animation}!````~Animation@{$\sim$\+Animation}}
+\index{````~Animation@{$\sim$\+Animation}!Animation@{Animation}}
+\subsubsection{\texorpdfstring{$\sim$\+Animation()}{~Animation()}}
+{\footnotesize\ttfamily Animation\+::$\sim$\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAnimation_af09462caccc4d41ebfe288f703c4facd}\label{classAnimation_af09462caccc4d41ebfe288f703c4facd}} 
+\index{Animation@{Animation}!update@{update}}
+\index{update@{update}!Animation@{Animation}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Animation\+::update (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{float}]{delta\+Time,  }\item[{bool}]{face\+Right }\end{DoxyParamCaption})}
+
+
+
+Updates the character animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Number of rows in the texture sheet. \\
+\hline
+{\em delta\+Time} & Pace time of the game. \\
+\hline
+{\em face\+Right} & Checks if the player is facing right or left \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classAnimation_af09462caccc4d41ebfe288f703c4facd_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classAnimation_a82c41dd15d9a98ecc0699ecca09fd056}\label{classAnimation_a82c41dd15d9a98ecc0699ecca09fd056}} 
+\index{Animation@{Animation}!uv\+Rect@{uv\+Rect}}
+\index{uv\+Rect@{uv\+Rect}!Animation@{Animation}}
+\subsubsection{\texorpdfstring{uv\+Rect}{uvRect}}
+{\footnotesize\ttfamily sf\+::\+Int\+Rect Animation\+::uv\+Rect}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Animation_8h}{Animation.\+h}}\item 
+\mbox{\hyperlink{Animation_8cpp}{Animation.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="Map::EndGame" name="Map::EndGame">
+<area shape="rect" id="node2" href="$classMap.html#ae2311b25220590e05479d66408eeaabf" title="Updates the player collision with the map. " alt="" coords="173,5,284,32"/>
+<area shape="rect" id="node3" href="$classMap.html#a7346023f96a36368daa2d4cafd4523f2" title="Updates the menu frames. " alt="" coords="332,5,435,32"/>
+</map>

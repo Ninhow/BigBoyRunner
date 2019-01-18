@@ -1,13 +1,17 @@
 #include "Map.h"
 #include <iostream>
-Map::Map(GameDataRef data, int tileWidth, int nTilesW, int nTilesH): _data(data), _tileWidth(tileWidth), _nTilesW(nTilesW), _nTilesH(nTilesH), _player(std::make_unique<Player>(_data->assets.GetTexture("Albin"),
-	sf::Vector2u(3, 4), 100)), _camera(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(1024.0f, 768.0f)){
+
+Map::Map(GameDataRef data, int tileWidth, int nTilesW, int nTilesH):
+ _data(data), _tileWidth(tileWidth), _nTilesW(nTilesW), _nTilesH(nTilesH),
+ _player(std::make_unique<Player>(_data->assets.GetTexture("Albin"),
+ sf::Vector2u(3, 4), 100)), _camera(_player->_body.getPosition(), sf::Vector2f(SCREEN_WIDTH, SCREEN_HEIGHT)){
 
 }
-//int tileWidth, int nTilesW, int nTilesH
+
 void Map::Init(){
-    _data->assets.LoadTexture("MapTiles", "forestiles2.png");
-    _tiles.setTexture(_data->assets.GetTexture("MapTiles"));
+    _data->assets.LoadTexture("tile1", "forestiles2.png");
+	_data->assets.LoadTexture("tile2", "tile2.png");
+	_data->assets.LoadTexture("tile3", "tile3.png");
 }
 
 
@@ -22,7 +26,7 @@ int Map::toIndex(sf::Vector2i vec)
 }
 
 //GÖR OM TILL 1 VECTOR OCH LÄS BÄTTRE!!
-std::vector<std::vector<sf::Vector2i>> Map::loadTextures(std::string fileName){
+void Map::loadTextures(std::string fileName){
 
 
     std::ifstream file(fileName);
@@ -32,13 +36,12 @@ std::vector<std::vector<sf::Vector2i>> Map::loadTextures(std::string fileName){
 	std::vector<int> tmp1;
     if (file.is_open())
 	{
-		while (!file.eof())
+		std::string str;
+		while(std::getline(file, str, ','))
 		{
-			std::string newline;
-			std::string str;
-			std::getline(file, str, ',');
 			int tmp;
-			if (str == "\n1")
+
+			if (str == "\n1" )
 			{
 				str = "1";
 				tmp = std::stol(str);
@@ -49,31 +52,6 @@ std::vector<std::vector<sf::Vector2i>> Map::loadTextures(std::string fileName){
 			tmp = std::stol(str);
 			tilesCord.push_back(tmp);
 
-			/*
-			for (int y = 0; y < _nTilesH; y++)
-			{
-				for (int x = 0; x < _nTilesW; x++)
-				{
-					tilesMap.push_back({ sf::Vector2i(x*_tileWidth, y*_tileWidth),
-						matrix[toIndex(x, y)] });
-				}
-			}*/
-
-			/*
-			std::string str;
-			file >> str;
-			if (!isdigit(str[0]) || !isdigit(str[2]))
-			{
-				tempMap.push_back(sf::Vector2i(-1, -1));
-			}
-			else {
-				tempMap.push_back(sf::Vector2i(str[0] - '0', str[2] - '0'));
-			}
-			if (file.peek() == '\n')
-			{
-				map.push_back(tempMap);
-				tempMap.clear();
-			}*/
 		}
 	}
 	else {
@@ -85,98 +63,210 @@ std::vector<std::vector<sf::Vector2i>> Map::loadTextures(std::string fileName){
 		for (int x = 0; x < _nTilesW; x++)
 		{
 
-			std::cout << tilesCord[toIndex(x, y)] << std::endl;
 			tilesMap.push_back({ sf::Vector2i(x * _tileWidth, y * _tileWidth),
 				tilesCord[toIndex(x, y)]});
 		}
 	}
-
-
-    return map;
 }
 
 
-void Map::update(float deltaTime)
+void Map::update(float deltaTime, sf::RenderWindow &window)
 {
 	
 	acc.y = 0.2;
-	vel.x += acc.x;
 	vel.y += acc.y;
 	_player->_body.move(vel);
+	auto bounds = _player->_body.getLocalBounds();
+	sf::Vector2f offset(bounds.width, bounds.height);
+	_camera.setCenter(_player->_body.getPosition().x + (SCREEN_WIDTH / 3), SCREEN_HEIGHT / 2);
+	window.setView(_camera);
+	collision();
+	_player->Update(deltaTime);
+	CPburgers();
+}
 
+sf::Vector2f Map::GetSize() const{
+	return sf::Vector2f((_tileWidth * _nTilesW), (_tileWidth * _nTilesH) );
+}
+
+void Map::collision(){
 
 	auto pos = static_cast<sf::Vector2i>(_player->_body.getPosition());
 	pos /= 32;
 
-	sf::Vector2i bottom = pos + sf::Vector2i(0, 1),
-		top = pos + sf::Vector2i(0, -1),
-		rightBottom = pos + sf::Vector2i(1, 1),
-		rightTop = pos + sf::Vector2i(1, -1);
-
-	if (tilesCord[toIndex(bottom)] == 1 || tilesCord[toIndex(rightBottom)] == 1)
-	{
-		vel.y = acc.y = 0.f;
-		auto newPos = tilesMap[toIndex(bottom)].pos;
-		auto playerPos = _player->_body.getPosition();
-		newPos.y -= 32;
-		_player->_body.setPosition(playerPos.x, newPos.y);
-		_player->isJumping = false;
-	}
-	else if (tilesCord[toIndex(top)] == 1 || tilesCord[toIndex(rightTop)] == 1)
-	{
-		//vel.y = acc.y = 0.f;
-		auto newPos = tilesMap[toIndex(top)].pos;
-		auto playerPos = _player->_body.getPosition();
-		newPos.y += 32 + 1;
-		_player->_body.setPosition(playerPos.x, newPos.y);
-	}
-
-
-	pos = static_cast<sf::Vector2i>(_player->_body.getPosition());
-	pos /= 32;
 
 	sf::Vector2i left = pos + sf::Vector2i(0, 0),
 		right = pos + sf::Vector2i(1, 0);
 
-	if (tilesCord[toIndex(left)] == 1)
+	if (tilesCord[toIndex(left)] > 0 )
 	{
 		auto newPos = tilesMap[toIndex(left)].pos;
 		auto playerPos = _player->_body.getPosition();
 		newPos.x += 32;
 		_player->_body.setPosition(newPos.x, playerPos.y);
-		vel.x = 0.f;
+		_player->isJumping = 1;
+
+		if(tilesCord[toIndex(left)] == 5){
+			tilesCord[toIndex(left)] = 0;
+			tilesMap[toIndex(left)].collide = 0;
+			burger++;
+			_bigBoy.play();
+		}else if(tilesCord[toIndex(left)] > 5){
+			EndGame();
+		}
 	}
-	else if (tilesCord[toIndex(right)] == 1)
+	else if (tilesCord[toIndex(right)] > 0)
 	{
 		auto newPos = tilesMap[toIndex(right)].pos;
 		auto playerPos = _player->_body.getPosition();
 		newPos.x -= 32;
 		_player->_body.setPosition(newPos.x, playerPos.y);
-		vel.x = 0.f;
+
+		_player->isJumping = 1;
+
+		if(tilesCord[toIndex(right)] == 5){
+			tilesCord[toIndex(right)] = 0;
+			tilesMap[toIndex(right)].collide = 0;
+			burger++;
+			_bigBoy.play();
+		}else if(tilesCord[toIndex(right)] > 6){
+			EndGame();
+		}
 	}
 
-	
-	_player->Update(deltaTime);
-	auto p = _player->_body.getPosition();
-	std::cout << p.x << ' ' << p.y << '\n';
-	
+	pos = static_cast<sf::Vector2i>(_player->_body.getPosition());
+	pos /= 32;
+
+	sf::Vector2i bottom = pos + sf::Vector2i(0, 1),
+		top = pos,
+		bottomRight = pos + sf::Vector2i(1, 1),
+		rightTop = pos + sf::Vector2i(1, 0);
+
+	if (tilesCord[toIndex(bottom)] > 0 || tilesCord[toIndex(bottomRight)] > 0)
+	{	
+
+		vel.y = acc.y = 0.f;
+		auto newPos = tilesMap[toIndex(bottom)].pos;
+		auto playerPos = _player->_body.getPosition();
+		newPos.y -= 32;
+		_player->_body.setPosition(playerPos.x, newPos.y + 0.5f);
+
+		_player->isJumping = false;
+
+
+		if(tilesCord[toIndex(bottom)] == 5 ){
+			tilesCord[toIndex(bottom)] = 0;
+			tilesMap[toIndex(bottom)].collide = 0;
+			burger++;
+			_bigBoy.play();
+		}else if(tilesCord[toIndex(bottomRight)] == 5){
+			tilesCord[toIndex(bottomRight)] = 0;
+			tilesMap[toIndex(bottomRight)].collide = 0;
+			burger++;
+			_bigBoy.play();
+		}else if(tilesCord[toIndex(bottom)] > 5){
+			EndGame();
+		}
+	}
+	else if (tilesCord[toIndex(top)] > 0 || tilesCord[toIndex(rightTop)] > 0)
+	{
+
+		auto newPos = tilesMap[toIndex(top)].pos;
+		auto playerPos = _player->_body.getPosition();
+		newPos.y += 32 + 1;
+		_player->_body.setPosition(playerPos.x, newPos.y + 0.5f);
+
+		if(tilesCord[toIndex(top)] == 5){
+			tilesCord[toIndex(top)] = 0;
+			tilesMap[toIndex(top)].collide = 0;
+			burger++;
+			_bigBoy.play();
+		}else if(tilesCord[toIndex(rightTop)] == 5){
+			tilesCord[toIndex(rightTop)] = 0;
+			tilesMap[toIndex(rightTop)].collide = 0;
+			burger++;
+			_bigBoy.play();
+		}else if(tilesCord[toIndex(top)] > 5){
+			EndGame();
+		}
+	}
+}
+
+void Map::CPburgers(){ 
+
+	switch(burger){
+		case 1:
+			_player->_movementScale = 1.5f;
+		break;
+
+		case 2:
+			_player->_movementScale = 2.0f;
+		break;
+
+		case 3:
+			_player->_movementScale = 2.5f;
+		break;
+
+		case 4:
+			_player->_movementScale = 3.0f;
+		break;
+	}
+
 }
 
 
 void Map::DrawMap( float deltaTime){
-    	
-	
 	for (auto t : tilesMap)
 	{
-		if (t.collide == 1)
-		{
+		switch(t.collide){
+			case 1: 
+			_tiles.setTexture(_data->assets.GetTexture("tile1"));
 			_tiles.setPosition(static_cast<sf::Vector2f>(t.pos));
 			_data->window.draw(_tiles);
+			break;
+
+			case 2:
+			_tiles.setTexture(_data->assets.GetTexture("tile2"));
+			_tiles.setPosition(static_cast<sf::Vector2f>(t.pos));
+			_data->window.draw(_tiles);
+			break;
+
+			case 3:
+			_tiles.setTexture(_data->assets.GetTexture("tile3"));
+			_tiles.setPosition(static_cast<sf::Vector2f>(t.pos));
+			_data->window.draw(_tiles);
+			break;
+
+			case 6:
+			_tiles.setTexture(_data->assets.GetTexture("big1"));
+			_tiles.setPosition(static_cast<sf::Vector2f>(t.pos));
+			_data->window.draw(_tiles);
+			break;
+
+			case 8:
+			_tiles.setTexture(_data->assets.GetTexture("big3"));
+			_tiles.setPosition(static_cast<sf::Vector2f>(t.pos));
+			_data->window.draw(_tiles);
+			break;
+
+			case 9:
+			_tiles.setTexture(_data->assets.GetTexture("big4"));
+			_tiles.setPosition(static_cast<sf::Vector2f>(t.pos));
+			_data->window.draw(_tiles);
+			break;
+
+			case 5:
+			_burgers.setTexture(_data->assets.GetTexture("burger"));
+			_burgers.setPosition(static_cast<sf::Vector2f>(t.pos));
+			_data->window.draw(_burgers);
+			break;
 		}
+		
 	}
 	_data->window.draw(_player->_body);
-	
-    //_data->window.display();
-
 }
 
+void Map::EndGame(){
+
+	_gameOver = true;
+}

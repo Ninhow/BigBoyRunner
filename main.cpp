@@ -8,7 +8,11 @@
 #include <string>
 #include <vector>
 
+
+#include <SFML/Audio.hpp>
+
 int main() {
+
 
 	Game(SCREEN_WIDTH, SCREEN_HEIGHT, "SFML STARTER");
 

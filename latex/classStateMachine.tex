@@ -1,0 +1,92 @@
+\hypertarget{classStateMachine}{}\section{State\+Machine Class Reference}
+\label{classStateMachine}\index{State\+Machine@{State\+Machine}}
+
+
+{\ttfamily \#include $<$State\+Machine.\+h$>$}
+
+
+
+Collaboration diagram for State\+Machine\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{classStateMachine__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStateMachine_a2fb07002510ea9141019559750acfab8}{State\+Machine}} ()
+\item 
+\mbox{\hyperlink{classStateMachine_a93d66cb2a89b186789d655a08b02674e}{$\sim$\+State\+Machine}} ()
+\item 
+void \mbox{\hyperlink{classStateMachine_a0ce4894da8a4f2312b1035713fb48c08}{Add\+State}} (\mbox{\hyperlink{StateMachine_8h_a217d9c9b187e9dd27abb46be48fb014d}{State\+Ref}} new\+State, bool is\+Replacing=true)
+\begin{DoxyCompactList}\small\item\em Adds a game state to the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStateMachine_aebefd3cef7db9e011e15f423061d1afc}{Remove\+State}} ()
+\item 
+void \mbox{\hyperlink{classStateMachine_a6758b622d0428a6ed72127cd5cbf1813}{Process\+State\+Change}} ()
+\item 
+\mbox{\hyperlink{StateMachine_8h_a217d9c9b187e9dd27abb46be48fb014d}{State\+Ref}} \& \mbox{\hyperlink{classStateMachine_a8ae5f91aa501e0fa07478d087814906e}{Get\+Active\+State}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{classStateMachine}{State\+Machine}} class, this class will handle all of the differents states of the game. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStateMachine_a2fb07002510ea9141019559750acfab8}\label{classStateMachine_a2fb07002510ea9141019559750acfab8}} 
+\index{State\+Machine@{State\+Machine}!State\+Machine@{State\+Machine}}
+\index{State\+Machine@{State\+Machine}!State\+Machine@{State\+Machine}}
+\subsubsection{\texorpdfstring{State\+Machine()}{StateMachine()}}
+{\footnotesize\ttfamily State\+Machine\+::\+State\+Machine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classStateMachine_a93d66cb2a89b186789d655a08b02674e}\label{classStateMachine_a93d66cb2a89b186789d655a08b02674e}} 
+\index{State\+Machine@{State\+Machine}!````~State\+Machine@{$\sim$\+State\+Machine}}
+\index{````~State\+Machine@{$\sim$\+State\+Machine}!State\+Machine@{State\+Machine}}
+\subsubsection{\texorpdfstring{$\sim$\+State\+Machine()}{~StateMachine()}}
+{\footnotesize\ttfamily State\+Machine\+::$\sim$\+State\+Machine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classStateMachine_a0ce4894da8a4f2312b1035713fb48c08}\label{classStateMachine_a0ce4894da8a4f2312b1035713fb48c08}} 
+\index{State\+Machine@{State\+Machine}!Add\+State@{Add\+State}}
+\index{Add\+State@{Add\+State}!State\+Machine@{State\+Machine}}
+\subsubsection{\texorpdfstring{Add\+State()}{AddState()}}
+{\footnotesize\ttfamily void State\+Machine\+::\+Add\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{StateMachine_8h_a217d9c9b187e9dd27abb46be48fb014d}{State\+Ref}}}]{new\+State,  }\item[{bool}]{is\+Replacing = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Adds a game state to the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+State} & Is a unique pointer to the state being added. \\
+\hline
+{\em is\+Replacing} & If the state is replacing there is no need of the argument, otherwise change it to false. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStateMachine_a8ae5f91aa501e0fa07478d087814906e}\label{classStateMachine_a8ae5f91aa501e0fa07478d087814906e}} 
+\index{State\+Machine@{State\+Machine}!Get\+Active\+State@{Get\+Active\+State}}
+\index{Get\+Active\+State@{Get\+Active\+State}!State\+Machine@{State\+Machine}}
+\subsubsection{\texorpdfstring{Get\+Active\+State()}{GetActiveState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{StateMachine_8h_a217d9c9b187e9dd27abb46be48fb014d}{State\+Ref}} \& State\+Machine\+::\+Get\+Active\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a referense to the active state. \mbox{\Hypertarget{classStateMachine_a6758b622d0428a6ed72127cd5cbf1813}\label{classStateMachine_a6758b622d0428a6ed72127cd5cbf1813}} 
+\index{State\+Machine@{State\+Machine}!Process\+State\+Change@{Process\+State\+Change}}
+\index{Process\+State\+Change@{Process\+State\+Change}!State\+Machine@{State\+Machine}}
+\subsubsection{\texorpdfstring{Process\+State\+Change()}{ProcessStateChange()}}
+{\footnotesize\ttfamily void State\+Machine\+::\+Process\+State\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Updates the game stack. \mbox{\Hypertarget{classStateMachine_aebefd3cef7db9e011e15f423061d1afc}\label{classStateMachine_aebefd3cef7db9e011e15f423061d1afc}} 
+\index{State\+Machine@{State\+Machine}!Remove\+State@{Remove\+State}}
+\index{Remove\+State@{Remove\+State}!State\+Machine@{State\+Machine}}
+\subsubsection{\texorpdfstring{Remove\+State()}{RemoveState()}}
+{\footnotesize\ttfamily void State\+Machine\+::\+Remove\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Removes a state from the game stack. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{StateMachine_8h}{State\+Machine.\+h}}\item 
+\mbox{\hyperlink{StateMachine_8cpp}{State\+Machine.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,135 @@
+\hypertarget{classMenu}{}\section{Menu Class Reference}
+\label{classMenu}\index{Menu@{Menu}}
+
+
+{\ttfamily \#include $<$Menu.\+h$>$}
+
+
+
+Inheritance diagram for Menu\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classMenu__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Menu\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=175pt]{classMenu__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMenu_a15b3521b67715170d4aaa6324003cc11}{Menu}} (\mbox{\hyperlink{Game_8h_aff850703a7797c8bfee2f02906aec50c}{Game\+Data\+Ref}} data)
+\item 
+\mbox{\hyperlink{classMenu_a831387f51358cfb88cd018e1777bc980}{$\sim$\+Menu}} ()
+\item 
+void \mbox{\hyperlink{classMenu_a2d4c37774fe4c5efe08ee436b0bb1c76}{Init}} ()
+\item 
+void \mbox{\hyperlink{classMenu_a0cb3596524ed7fd021f999860b563bf8}{Handle\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input from the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenu_a4d5311d60fb41b4d0498a6fc820088be}{Update}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the menu frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenu_a510885af1fe41d02c1669fca278f7eed}{Draw}} (float delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the menu frames. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{classMenu}{Menu}} class, first stage where the player decides to play. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMenu_a15b3521b67715170d4aaa6324003cc11}\label{classMenu_a15b3521b67715170d4aaa6324003cc11}} 
+\index{Menu@{Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Menu@{Menu}}
+\subsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily Menu\+::\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Game_8h_aff850703a7797c8bfee2f02906aec50c}{Game\+Data\+Ref}}}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMenu_a831387f51358cfb88cd018e1777bc980}\label{classMenu_a831387f51358cfb88cd018e1777bc980}} 
+\index{Menu@{Menu}!````~Menu@{$\sim$\+Menu}}
+\index{````~Menu@{$\sim$\+Menu}!Menu@{Menu}}
+\subsubsection{\texorpdfstring{$\sim$\+Menu()}{~Menu()}}
+{\footnotesize\ttfamily Menu\+::$\sim$\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMenu_a510885af1fe41d02c1669fca278f7eed}\label{classMenu_a510885af1fe41d02c1669fca278f7eed}} 
+\index{Menu@{Menu}!Draw@{Draw}}
+\index{Draw@{Draw}!Menu@{Menu}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Menu\+::\+Draw (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Updates the menu frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Pace timing. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classState_ae3bc988c6103665bca68560742fb40e1}{State}}.
+
+\mbox{\Hypertarget{classMenu_a0cb3596524ed7fd021f999860b563bf8}\label{classMenu_a0cb3596524ed7fd021f999860b563bf8}} 
+\index{Menu@{Menu}!Handle\+Input@{Handle\+Input}}
+\index{Handle\+Input@{Handle\+Input}!Menu@{Menu}}
+\subsubsection{\texorpdfstring{Handle\+Input()}{HandleInput()}}
+{\footnotesize\ttfamily void Menu\+::\+Handle\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Handles mouse input from the player. 
+
+
+
+Implements \mbox{\hyperlink{classState_ad3de659bdeb45c97486464461d625e8f}{State}}.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classMenu_a0cb3596524ed7fd021f999860b563bf8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classMenu_a2d4c37774fe4c5efe08ee436b0bb1c76}\label{classMenu_a2d4c37774fe4c5efe08ee436b0bb1c76}} 
+\index{Menu@{Menu}!Init@{Init}}
+\index{Init@{Init}!Menu@{Menu}}
+\subsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Menu\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classState_a7ab4d8c6aa239a17ed579d89a209b156}{State}}.
+
+\mbox{\Hypertarget{classMenu_a4d5311d60fb41b4d0498a6fc820088be}\label{classMenu_a4d5311d60fb41b4d0498a6fc820088be}} 
+\index{Menu@{Menu}!Update@{Update}}
+\index{Update@{Update}!Menu@{Menu}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Menu\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Updates the menu frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Pace timing. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classState_a770f40188fdfc64bc95a5166fef12e02}{State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Menu_8h}{Menu.\+h}}\item 
+\mbox{\hyperlink{Menu_8cpp}{Menu.\+cpp}}\end{DoxyCompactItemize}

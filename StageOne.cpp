@@ -2,22 +2,34 @@
 #include <iostream>
 
 
+
 StageOne::StageOne(GameDataRef data)
-: _data(data)
-{
+: _data(data){
+	music.openFromFile("theme.ogg");
+    music.play();
 }
 
 StageOne::~StageOne()
 {
+	music.stop();
 }
 
 //Initialize needed systems
 void StageOne::Init()
 {
 	_background.setTexture(_data->assets.GetTexture("MENU"));
-	_map.get()->Init();
+	_data->assets.GetTexture("MENU").setRepeated(true);
 
-	 _cordinates = _map.get()->loadTextures("Map2.txt");
+	_map->_bigBoy.setBuffer(_data->assets.GetSound("bigboy"));
+	_map.get()->Init();
+	_map.get()->loadTextures("Map2.txt");
+
+
+	auto texRect = _background.getTextureRect();
+	texRect.width = _map->GetSize().x;
+	_background.setTextureRect(texRect);
+	
+	
 }
 
 //Handle stage inputs! 
@@ -33,25 +45,23 @@ void StageOne::HandleInput()
 		}
 	}
 }
+
 //Update Stage
 void StageOne::Update(float deltaTime)
 {
 	
-	_map->update(deltaTime);
-	//_player->Update(deltaTime);
+	_map->update(deltaTime, _data->window);
+	if(_map->_gameOver){
+		_data->machine.AddState(StateRef(new GameOver(_data)));
+		
+		
+	}
 }
 
 void StageOne::Draw(float deltaTime)
 {
-
-	//_camera.setCenter(_data->window.getSize().x / 2, _data->window.getSize().y / 2);
-	//.move(_player->_body.getPosition().x - (SCREEN_WIDTH / 2), 0);
-
-
 	_data->window.clear();
-	//_data->window.setView(_camera);
 	_data->window.draw(_background);
 	_map->DrawMap(deltaTime);
-	//_player->Draw(_data->window);
 	_data->window.display();
 }
